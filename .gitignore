@@ -1,0 +1,4 @@
+data/
+*.pt
+results/**/weights/
+kaggle.json
