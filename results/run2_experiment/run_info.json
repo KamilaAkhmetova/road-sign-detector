@@ -1,0 +1,26 @@
+{
+  "name": "run2_experiment",
+  "framework": "ultralytics 8.4.215",
+  "torch": "2.14.1+cu130",
+  "python": "3.13.16",
+  "device": "Tesla T4",
+  "initial_weights": "yolo26n.pt",
+  "train_min": 3.67,
+  "cfg": {
+    "data": "/content/data/yolo/data.yaml",
+    "imgsz": 320,
+    "batch": 16,
+    "epochs": 30,
+    "optimizer": "AdamW",
+    "lr0": 0.001,
+    "seed": 42,
+    "workers": 2,
+    "cache": true,
+    "project": "/content/results",
+    "exist_ok": true,
+    "name": "run2_experiment"
+  },
+  "changed_vs_baseline": {
+    "imgsz": 320
+  }
+}

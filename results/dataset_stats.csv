@@ -1,0 +1,4 @@
+split,images,objects,stop,speedlimit,crosswalk,trafficlight
+train,613,877,56,545,147,129
+val,132,174,21,114,24,15
+test,132,193,14,124,29,26

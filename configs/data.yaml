@@ -1,0 +1,10 @@
+# reference copy; notebook writes data/yolo/data.yaml with an absolute path at run time
+path: data/yolo
+train: images/train
+val: images/val
+test: images/test
+names:
+  0: stop
+  1: speedlimit
+  2: crosswalk
+  3: trafficlight

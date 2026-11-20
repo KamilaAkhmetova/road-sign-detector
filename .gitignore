@@ -1,8 +1,13 @@
+# dataset is re-created by the notebook (kagglehub + seeded split)
 data/
+# weights are shared by link, see README
 *.pt
 results/**/weights/
+# misc
 mlflow.db
 mlruns/
 runs/
 kaggle.json
 __pycache__/
+.ipynb_checkpoints/
+*.zip

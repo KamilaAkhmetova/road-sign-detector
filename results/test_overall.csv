@@ -1,0 +1,2 @@
+run,precision,recall,mAP@0.50,conf,IoU (NMS),imgsz
+run2_experiment,0.905,0.845,0.862,0.001,0.7,320

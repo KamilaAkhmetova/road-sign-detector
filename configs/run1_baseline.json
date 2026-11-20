@@ -1,0 +1,18 @@
+{
+  "cfg": {
+    "data": "/content/data/yolo/data.yaml",
+    "imgsz": 640,
+    "batch": 16,
+    "epochs": 30,
+    "optimizer": "AdamW",
+    "lr0": 0.001,
+    "seed": 42,
+    "workers": 2,
+    "cache": true,
+    "project": "/content/results",
+    "exist_ok": true,
+    "name": "run1_baseline"
+  },
+  "changed_vs_baseline": {},
+  "initial_weights": "yolo26n.pt"
+}

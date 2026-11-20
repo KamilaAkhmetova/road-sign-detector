@@ -1,0 +1,3 @@
+run,changed setting,precision,recall,mAP@0.50,train time (min)
+run1_baseline,none (baseline),0.981,0.877,0.925,5.4
+run2_experiment,imgsz=320,0.934,0.9,0.93,3.67
