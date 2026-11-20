@@ -1,4 +1,8 @@
 data/
 *.pt
 results/**/weights/
+mlflow.db
+mlruns/
+runs/
 kaggle.json
+__pycache__/
