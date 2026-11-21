@@ -16,7 +16,10 @@ Detect four kinds of road signs (stop, speed limit, crosswalk, traffic light) in
 | val | 132 | 174 | 21 | 114 | 24 | 15 |
 | test | 132 | 193 | 14 | 124 | 29 | 26 |
 
-* Checks: 0 label problems found (missing files, empty labels, boxes outside the image, unknown classes). 2 groups of exact duplicate images exist, 2 of them entirely inside one split; 0 near-duplicate pairs (perceptual hash distance <= 4) cross different splits.
+* Checks: no label problems (missing files, empty labels, boxes outside the image, unknown classes) and every image has an annotation. Two pairs of exact duplicate images exist (`road145`/`road147` and `road42`/`road48`); both pairs are inside the train split, so they cannot leak into val/test. A perceptual-hash check (Hamming distance <= 4) found 0 near-duplicate pairs across different splits.
+
+**Class balance.** The three splits have similar class proportions, but the classes themselves are imbalanced: the train set has 545 speed-limit objects and only 56 stop objects. A model can look good on an imbalanced dataset by favouring the majority class. mAP@0.50 is averaged per class, which makes it harder to hide this, and we report per-class results. The split is random, not stratified, so rare classes are unevenly represented (e.g. 21 stop objects in val vs 14 in test).
+
 * Ground-truth examples: `results/gt_examples.png`.
 
 ## Setup and run
@@ -83,3 +86,4 @@ Predictions: `results/test_predictions.png` (confidence >= 0.25). Failure cases:
 * The split is random per image; the dataset has no scene or video ids, so very similar scenes could still sit in different splits (a perceptual-hash check found 0 such pairs).
 * Small model and limited epochs because of the compute budget.
 
+**Explanation.** The hypothesis was not supported. Training at 320 px was 32% faster (3.7 vs 5.4 min) and mAP@0.50 was practically the same (0.930 vs 0.925); recall even rose (0.900 vs 0.877), while precision fell (0.934 vs 0.981), i.e. the smaller input found slightly more objects but made more false detections. The 0.005 mAP difference is within random variation: one seed per run and only 174 validation objects (15 traffic lights). A possible reason is that the source images are small, so 640 px mostly upsamples them and adds no detail (check `Image.open(...).size` before claiming this). Run 2 was selected as final by the validation rule (higher val mAP@0.50), although the two runs are practically tied.
